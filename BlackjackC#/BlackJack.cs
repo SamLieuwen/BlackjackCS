@@ -7,7 +7,7 @@ namespace BlackjackC_
     public class BlackJack
     {
         //Universal Variables
-        public static double totalEarnings = 0;
+        public static double totalEarnings = 0.0;
         public static List<Card> deck;
         public static List<Card> pH;
         public static List<Card> dH;
