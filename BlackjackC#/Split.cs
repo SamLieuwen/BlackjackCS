@@ -6,6 +6,7 @@ namespace BlackjackC_
 {
     public class Split : BlackJack
     {   
+        //Split Class Global Variables
         private static List<Card> sH;
         private static int sS;
         private static int splitBet;
