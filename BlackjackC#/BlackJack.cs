@@ -319,7 +319,7 @@ namespace BlackjackC_
             Split.Main(null);
         }
 
-        //Single hand results
+        //Single-hand results
         public static void results()
         {
             Console.Clear();

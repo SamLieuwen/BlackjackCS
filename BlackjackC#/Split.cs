@@ -295,6 +295,7 @@ namespace BlackjackC_
             }
         }
 
+        //Multi-hand results
         public new static void results()
         {
             Console.Clear();
