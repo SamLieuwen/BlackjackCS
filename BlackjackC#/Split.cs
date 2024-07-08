@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BlackjackC_
+namespace BlackjackCS
 {
     public class Split : BlackJack
     {   
