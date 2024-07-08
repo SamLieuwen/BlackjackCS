@@ -130,7 +130,7 @@ namespace BlackjackC_
                 }
             }
 
-            Console.Write("\nWould you like to play again: (Yes / No) ");
+            Console.Write("\nTotal Earnings: $" + totalEarnings + "\nWould you like to play again: (Yes / No) ");
             if ("yes" == Console.ReadLine().ToLower())
             {
                 Console.Clear();
@@ -321,17 +321,17 @@ namespace BlackjackC_
 
             if (dS > 21 && pS <= 21 && sS <= 21) { Console.WriteLine("\nDealer Bust\nPayout: $" + ((bet * 2) + (splitBet * 2))); return; }
 
-            if (pS > 21) { Console.WriteLine("\nYour 1st Hand Bust\nDealer Wins"); }
-            else if (dS > 21) { Console.WriteLine("\nDealer Bust\nPayout: $" + bet * 2); }
+            if (pS > 21) { Console.WriteLine("\nYour 1st Hand Bust\nDealer Wins"); totalEarnings -= bet; }
+            else if (dS > 21) { Console.WriteLine("\nDealer Bust\nPayout: $" + bet * 2); totalEarnings += (bet * 2); }
             else if (pS == dS) { Console.WriteLine("\nYour 1st was a Stand\nPayout: $" + bet); }
-            else if (pS > dS && pS <= 21) { Console.WriteLine("\nYour 1st Hand Won\nPayout: $" + bet * 2); }
-            else if (dS > pS && dS <= 21) { Console.WriteLine("\nDealer Beat Your 1st Hand"); }
+            else if (pS > dS && pS <= 21) { Console.WriteLine("\nYour 1st Hand Won\nPayout: $" + bet * 2); totalEarnings += (bet * 2); }
+            else if (dS > pS && dS <= 21) { Console.WriteLine("\nDealer Beat Your 1st Hand"); totalEarnings -= bet; }
 
-            if (sS > 21) { Console.WriteLine("\nYour 2nd Hand Bust\nDealer Wins"); }
-            else if (dS > 21) { Console.WriteLine("\nDealer Bust\nPayout: $" + splitBet * 2); }
+            if (sS > 21) { Console.WriteLine("\nYour 2nd Hand Bust\nDealer Wins"); totalEarnings -= splitBet; }
+            else if (dS > 21) { Console.WriteLine("\nDealer Bust\nPayout: $" + splitBet * 2); totalEarnings += (splitBet * 2); }
             else if (sS == dS) { Console.WriteLine("\nYour 2nd was a Stand\nPayout: $" + splitBet); }
-            else if (sS > dS && sS <= 21) { Console.WriteLine("\nYour 2nd Hand Won\nPayout: $" + splitBet * 2); }
-            else if (dS > sS && dS <= 21) { Console.WriteLine("\nDealer Beat Your 2nd Hand"); }
+            else if (sS > dS && sS <= 21) { Console.WriteLine("\nYour 2nd Hand Won\nPayout: $" + splitBet * 2); totalEarnings += (splitBet * 2); }
+            else if (dS > sS && dS <= 21) { Console.WriteLine("\nDealer Beat Your 2nd Hand"); totalEarnings -= splitBet; }
         }
     }
 }

@@ -5,8 +5,9 @@ using System.Linq;
 namespace BlackjackC_
 {
     public class BlackJack
-    {   
+    {
         //Universal Variables
+        public static double totalEarnings = 0;
         public static List<Card> deck;
         public static List<Card> pH;
         public static List<Card> dH;
@@ -81,10 +82,13 @@ namespace BlackjackC_
             if (pH.Count == 2 && pS == 21)
             {
                 runGame = false;
+                totalEarnings += Convert.ToDouble(bet) * 1.5;
                 Console.WriteLine("\nBlackJack\nPayout: $" + Convert.ToDouble(bet) * 1.5);
             }
             if (dH.Count == 2 && dS == 21)
             {
+                totalEarnings -= bet;
+                
                 runGame = false;
                 Console.Clear();
                 Console.Write("Bet: $" + bet + "\nYour Hand: ");
@@ -179,14 +183,14 @@ namespace BlackjackC_
                 }
             }
 
-            Console.Write("\nWould you like to play again: (Yes / No) ");
+            Console.Write("\nTotal Earnings: $" + totalEarnings + "\nWould you like to play again: (Yes / No) ");
             if ("yes" == Console.ReadLine().ToLower()) 
             {
                 Console.Clear();
                 BlackJack.Main(null); 
             }
         }
-
+        
         //Action distrubution
         public void actions(BlackJack game)
         {
@@ -337,11 +341,11 @@ namespace BlackjackC_
             }
             Console.WriteLine();
 
-            if (pS > 21) { Console.WriteLine("\nYour Hand Bust\nDealer Wins"); }
-            else if (dS > 21) { Console.WriteLine("\nDealer Bust\nPayout: $" + bet * 2); }
+            if (pS > 21) { Console.WriteLine("\nYour Hand Bust\nDealer Wins"); totalEarnings -= bet; }
+            else if (dS > 21) { Console.WriteLine("\nDealer Bust\nPayout: $" + bet * 2); totalEarnings += (bet * 2); }
             else if (pS == dS) { Console.WriteLine("\nYour was a Stand\nPayout: $" + bet); }
-            else if (pS > dS && pS <= 21) { Console.WriteLine("\nYour Hand Won\nPayout: $" + bet * 2); }
-            else if (dS > pS && dS <= 21) { Console.WriteLine("\nDealer Beat Your Hand"); }
+            else if (pS > dS && pS <= 21) { Console.WriteLine("\nYour Hand Won\nPayout: $" + bet * 2); totalEarnings += (bet * 2);  }
+            else if (dS > pS && dS <= 21) { Console.WriteLine("\nDealer Beat Your Hand"); totalEarnings -= bet; }
         }
 
         //Deck creation
