@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BlackjackC#": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}
