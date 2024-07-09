@@ -35,7 +35,7 @@ namespace BlackjackCS
 
             BlackJack.createDeck();
 
-            Console.WriteLine("Welcome To Blackjack!");
+            Console.WriteLine("Welcome to Blackjack!");
 
             while (true)
             {
