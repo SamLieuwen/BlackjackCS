@@ -144,14 +144,12 @@ namespace BlackjackCS
             while (runGame)
             {
                 Console.Clear();
-
                 Console.Write("Bet: $" + bet + "\nYour Hand: ");
                 foreach (Card card in pH)
                 {
                     Console.Write(card.card + " ");
                 }
-                Console.WriteLine();
-                Console.WriteLine("\nDealer Hand: " + dH.First().card);
+                Console.WriteLine("\n\nDealer Hand: " + dH.First().card);
 
                 if (pS > 21)
                 {
