@@ -6,7 +6,7 @@
     <RootNamespace>BlackjackC_</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>BlackjackC_.BlackJack</StartupObject>
+    <StartupObject>BlackjackCS.BlackJack</StartupObject>
   </PropertyGroup>
 
 </Project>
