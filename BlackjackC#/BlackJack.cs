@@ -70,19 +70,19 @@ namespace BlackjackCS
                 dS += card.cV;
             }
 
-            Console.Clear();
-            Console.Write("Bet: $" + bet + "\nYour Hand: ");
-            foreach (Card card in pH)
-            {
-                Console.Write(card.card + " ");
-            }
-            Console.WriteLine();
-            Console.WriteLine("\nDealer Hand: " + dH.First().card);
-
             if (pH.Count == 2 && pS == 21)
             {
                 runGame = false;
                 totalEarnings += Convert.ToDouble(bet) * 1.5;
+
+                Console.Clear();
+                Console.Write("Bet: $" + bet + "\nYour Hand: ");
+                foreach (Card card in pH)
+                {
+                    Console.Write(card.card + " ");
+                }
+                Console.WriteLine();
+                Console.WriteLine("\nDealer Hand: " + dH.First().card);
                 Console.WriteLine("\nBlackJack\nPayout: $" + Convert.ToDouble(bet) * 1.5);
             }
             if (dH.Count == 2 && dS == 21)
