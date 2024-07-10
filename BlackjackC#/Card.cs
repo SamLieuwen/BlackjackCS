@@ -9,8 +9,8 @@ namespace BlackjackCS
     public class Card
     {
         //Card attributes
-        public string card { get; set; }
-        public int cV { get; set; }
+        public string card { get; }
+        public int cV { get; }
 
         public Card(string card, int cV)
         {
