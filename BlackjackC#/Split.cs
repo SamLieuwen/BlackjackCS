@@ -54,7 +54,7 @@ namespace BlackjackCS
                     {
                         pS -= 10;
                         pHAceCount--;
-                        game.actions(game);
+                        game.Actions(game);
                     }
                     else
                     {
@@ -72,7 +72,7 @@ namespace BlackjackCS
                 }
                 else
                 {
-                    game.actions(game);
+                    game.Actions(game);
                 }
             }
 
@@ -97,7 +97,7 @@ namespace BlackjackCS
                     {
                         sS -= 10;
                         sHAceCount--;
-                        game.splitActions(game);
+                        game.SplitActions(game);
                     }
                     else
                     {
@@ -105,7 +105,7 @@ namespace BlackjackCS
                         Console.WriteLine("\nYour 2nd Hand Bust\nPress 'Space' To Continue");
                         Console.ReadKey();
 
-                        Split.results();
+                        Split.Results();
                         break;
                     }
                 }
@@ -115,11 +115,11 @@ namespace BlackjackCS
                     Console.WriteLine("\nYour 2nd Hand Got 21\nPress 'Space' To Continue");
                     Console.ReadKey();
 
-                    game.stand();
+                    game.Stand();
                 }
                 else
                 {
-                    game.splitActions(game);
+                    game.SplitActions(game);
                 }
             }
 
@@ -132,7 +132,7 @@ namespace BlackjackCS
         }
 
         //Action Distribution for both hands
-        public void actions(Split game)
+        public void Actions(Split game)
         {
             string answer = "";
             bool loop = true;
@@ -145,7 +145,7 @@ namespace BlackjackCS
                 switch (answer)
                 {
                     case "hit":
-                        game.hit();
+                        game.Hit();
                         loop = false;
                         break;
                     case "stand":
@@ -153,7 +153,7 @@ namespace BlackjackCS
                         loop = false;
                         break;
                     case "double down":
-                        game.doubleD(game);
+                        game.DoubleD(game);
                         loop = false;
                         break;
                     default:
@@ -162,7 +162,7 @@ namespace BlackjackCS
                 }
             }
         }
-        public void splitActions(Split game)
+        public void SplitActions(Split game)
         {
             string answer = "";
             bool loop = true;
@@ -175,15 +175,15 @@ namespace BlackjackCS
                 switch (answer)
                 {
                     case "hit":
-                        game.splitHit();
+                        game.SplitHit();
                         loop = false;
                         break;
                     case "stand":
-                        game.stand();
+                        game.Stand();
                         loop = false;
                         break;
                     case "double down":
-                        game.splitDD(game);
+                        game.SplitDD(game);
                         loop = false;
                         break;
                     default:
@@ -194,7 +194,7 @@ namespace BlackjackCS
         }
         
         //Player actions for both hands
-        public new void hit()
+        public new void Hit()
         {
             pH.Add(deck[0]);
             deck.RemoveAt(0);
@@ -208,7 +208,7 @@ namespace BlackjackCS
                 pHAceCount--;
             }
         }
-        public void splitHit()
+        public void SplitHit()
         {
             sH.Add(deck[0]);
             deck.RemoveAt(0);
@@ -222,19 +222,19 @@ namespace BlackjackCS
                 sHAceCount--;
             }
         }
-        public void doubleD(Split game)
+        public void DoubleD(Split game)
         {
             bet *= 2;
-            game.hit();
+            game.Hit();
             runGame = false;
         }
-        public void splitDD(Split game)
+        public void SplitDD(Split game)
         {
             splitBet *= 2;
-            game.splitHit();
-            game.stand();
+            game.SplitHit();
+            game.Stand();
         }
-        public new void stand()
+        public new void Stand()
         {
             splitGame = false;
 
@@ -268,12 +268,12 @@ namespace BlackjackCS
 
                 if (dS >= 17 && dS <= 21)
                 {
-                    Split.results();
+                    Split.Results();
                     break;
                 }
                 else if (dS > 21)
                 {
-                    Split.results();
+                    Split.Results();
                     break;
                 }
                 else
@@ -289,7 +289,7 @@ namespace BlackjackCS
         }
 
         //Multi-hand results
-        public new static void results()
+        public new static void Results()
         {
             Console.Clear();
 

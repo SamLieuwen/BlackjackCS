@@ -33,7 +33,7 @@ namespace BlackjackCS
             dHAceCount = 0;
             runGame = true;
 
-            BlackJack.createDeck();
+            BlackJack.CreateDeck();
 
             Console.WriteLine("Welcome to Blackjack!");
 
@@ -119,19 +119,19 @@ namespace BlackjackCS
                     switch (answer)
                     {
                         case "hit":
-                            game.hit();
+                            game.Hit();
                             loop = false;
                             break;
                         case "stand":
-                            game.stand();
+                            game.Stand();
                             loop = false;
                             break;
                         case "double down":
-                            game.doubleD(game);
+                            game.DoubleD(game);
                             loop = false;
                             break;
                         case "split":
-                            game.split();
+                            game.SplitGame();
                             loop = false;
                             break;
                         default:
@@ -157,14 +157,14 @@ namespace BlackjackCS
                     {
                         pS -= 10;
                         pHAceCount--;
-                        game.actions(game);
+                        game.Actions(game);
                     }
                     else
                     {
                         runGame = false;
                         Console.WriteLine("\nYour Hand Bust\nPress 'Space' To Continue");
                         Console.ReadKey();
-                        BlackJack.results();
+                        BlackJack.Results();
                         break;
                     }
                 }
@@ -173,11 +173,11 @@ namespace BlackjackCS
                     runGame = false;
                     Console.WriteLine("\nYour Hand Got 21\nPress 'Space' To Continue");
                     Console.ReadKey();
-                    game.stand();
+                    game.Stand();
                 }
                 else
                 {
-                    game.actions(game);
+                    game.Actions(game);
                 }
             }
 
@@ -190,7 +190,7 @@ namespace BlackjackCS
         }
         
         //Action distrubution
-        public void actions(BlackJack game)
+        public void Actions(BlackJack game)
         {
             string answer = "";
             bool loop = true;
@@ -205,15 +205,15 @@ namespace BlackjackCS
                     switch (answer)
                     {
                         case "hit":
-                            game.hit();
+                            game.Hit();
                             loop = false;
                             break;
                         case "stand":
-                            game.stand();
+                            game.Stand();
                             loop = false;
                             break;
                         case "double down":
-                            game.doubleD(game);
+                            game.DoubleD(game);
                             loop = false;
                             break;
                         default:
@@ -232,11 +232,11 @@ namespace BlackjackCS
                     switch (answer)
                     {
                         case "hit":
-                            game.hit();
+                            game.Hit();
                             loop = false;
                             break;
                         case "stand":
-                            game.stand();
+                            game.Stand();
                             loop = false;
                             break;
                         default:
@@ -248,7 +248,7 @@ namespace BlackjackCS
         }
 
         //Player actions
-        public void hit()
+        public void Hit()
         {
             pH.Add(deck[0]);
             deck.RemoveAt(0);
@@ -262,7 +262,7 @@ namespace BlackjackCS
                 pHAceCount--;
             }
         }
-        public void stand()
+        public void Stand()
         {
             runGame = false;
 
@@ -289,12 +289,12 @@ namespace BlackjackCS
 
                 if (dS >= 17 && dS <= 21)
                 {
-                    BlackJack.results();
+                    BlackJack.Results();
                     break;
                 }
                 else if (dS > 21)
                 {
-                    BlackJack.results();
+                    BlackJack.Results();
                     break;
                 }
                 else
@@ -308,21 +308,21 @@ namespace BlackjackCS
                 }
             }
         }
-        public void doubleD(BlackJack game)
+        public void DoubleD(BlackJack game)
         {
             bet *= 2;
 
-            game.hit();
-            game.stand();
+            game.Hit();
+            game.Stand();
         }
-        public void split()
+        public void SplitGame()
         {
             runGame = false;
             Split.Main(null);
         }
 
         //Single-hand results
-        public static void results()
+        public static void Results()
         {
             Console.Clear();
 
@@ -347,7 +347,7 @@ namespace BlackjackCS
         }
 
         //Deck creation
-        public static void createDeck()
+        public static void CreateDeck()
         {
             for (int i = 0; i < 4; i++)
             {
