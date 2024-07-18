@@ -106,6 +106,14 @@ namespace BlackjackCS
                 string answer = "";
                 bool loop = true;
 
+                Console.Clear();
+                Console.Write("Bet: $" + bet + "\nYour Hand: ");
+                foreach (Card card in Decks.playerHand)
+                {
+                    Console.Write(card.card + " ");
+                }
+                Console.WriteLine("\n\nDealer Hand: " + Decks.dealerHand.First().card);
+
                 Console.WriteLine("\nWhat would you like to do: 'Hit' 'Stand' 'Double Down' 'Split'");
                 while (loop)
                 {
@@ -177,10 +185,10 @@ namespace BlackjackCS
             }
 
             Console.Write("\nTotal Earnings: $" + totalEarnings + "\nWould you like to play again: (Yes / No) ");
-            if ("yes" == Console.ReadLine().ToLower()) 
+            if ("yes" == Console.ReadLine().ToLower())
             {
                 Console.Clear();
-                Main(null); 
+                Main(null);
             }
         }
 

@@ -130,6 +130,9 @@ namespace BlackjackCS
             BlackJack.bet *= 2;
 
             Hit();
+
+            if (BlackJack.playerScore == 21) { Console.WriteLine("Your Hand Got 21!\nPress 'Space' to continue"); Console.ReadKey(); }
+
             Stand();
         }
         public static void SplitGame()
@@ -137,7 +140,5 @@ namespace BlackjackCS
             BlackJack.runGame = false;
             Split.Main(null);
         }
-
-
     }
 }

@@ -63,7 +63,7 @@ namespace BlackjackCS
                 else if (playerScore == 21)
                 {
                     runGame = false;
-                    Console.WriteLine("Your 1st Hand Got 21\nPresplitScore 'Space' To Continue");
+                    Console.WriteLine("Your 1st Hand Got 21\nPress 'Space' To Continue");
                     Console.ReadKey();
                 }
                 else

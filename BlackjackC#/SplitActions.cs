@@ -14,9 +14,9 @@ namespace BlackjackCS
             string answer = "";
             bool loop = true;
 
-            Console.WriteLine("\nWhat would you like to do with your 1st Hand: 'Hit' 'Stand' 'Double Down'");
-            while (loop)
+            if (Decks.playerHand.Count < 2)
             {
+                Console.WriteLine("\nWhat would you like to do with your 1st Hand: 'Hit' 'Stand' 'Double Down'");
                 answer = Console.ReadLine().ToLower();
 
                 switch (answer)
@@ -30,12 +30,35 @@ namespace BlackjackCS
                         loop = false;
                         break;
                     case "double down":
-                        Actions.DoubleD();
+                        Actions.DoubleDown();
                         loop = false;
                         break;
                     default:
                         Console.WriteLine("Invalid Response");
                         break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nWhat would you like to do with your 1st Hand: 'Hit' 'Stand'");
+                while (loop)
+                {
+                    answer = Console.ReadLine().ToLower();
+
+                    switch (answer)
+                    {
+                        case "hit":
+                            Actions.Hit();
+                            loop = false;
+                            break;
+                        case "stand":
+                            BlackJack.runGame = false;
+                            loop = false;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Response");
+                            break;
+                    }
                 }
             }
         }
@@ -44,9 +67,9 @@ namespace BlackjackCS
             string answer = "";
             bool loop = true;
 
-            Console.WriteLine("\nWhat would you like to do with your 2nd Hand: 'Hit' 'Stand' 'Double Down'");
-            while (loop)
+            if (Decks.splitHand.Count < 2)
             {
+                Console.WriteLine("\nWhat would you like to do with your 2nd Hand: 'Hit' 'Stand' 'Double Down'");
                 answer = Console.ReadLine().ToLower();
 
                 switch (answer)
@@ -66,6 +89,29 @@ namespace BlackjackCS
                     default:
                         Console.WriteLine("Invalid Response");
                         break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nWhat would you like to do with your 2nd Hand: 'Hit' 'Stand'");
+                while (loop)
+                {
+                    answer = Console.ReadLine().ToLower();
+
+                    switch (answer)
+                    {
+                        case "hit":
+                            SplitHit();
+                            loop = false;
+                            break;
+                        case "stand":
+                            SplitStand();
+                            loop = false;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Response");
+                            break;
+                    }
                 }
             }
         }
@@ -88,6 +134,9 @@ namespace BlackjackCS
         {
             Split.splitBet *= 2;
             SplitHit();
+
+            if (Split.splitScore == 21) { Console.WriteLine("Your Hand Got 21!\nPress 'Space' to continue"); Console.ReadKey(); }
+
             SplitStand();
         }
         public static void SplitStand()
