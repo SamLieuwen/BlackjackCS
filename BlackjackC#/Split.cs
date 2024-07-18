@@ -6,7 +6,7 @@ namespace BlackjackCS
 {
     public class Split : BlackJack
     {   
-        //Split ClasplitScore Global Variables
+        //Split Class Global Variables
         public static int splitScore;
         public static int splitBet;
         public static bool splitGame;
@@ -127,6 +127,7 @@ namespace BlackjackCS
             }
         }
 
+        //Multi-Hand Results
         public new static void Results()
         {
             Console.Clear();

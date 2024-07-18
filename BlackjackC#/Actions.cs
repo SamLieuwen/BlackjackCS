@@ -8,6 +8,7 @@ namespace BlackjackCS
 {
     internal class Actions
     {
+        //Base game actions   
         public static void SingleHandActions()
         {
             string answer = "";

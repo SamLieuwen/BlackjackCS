@@ -9,6 +9,7 @@ namespace BlackjackCS
 {
     internal class SplitActions
     {
+        //Split game actions
         public static void FirstHandActions()
         {
             string answer = "";
