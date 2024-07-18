@@ -21,7 +21,6 @@ namespace BlackjackCS
             runGame = true;
             splitGame = true;
             
-
             Decks.splitHand.Add(Decks.playerHand[1]);
             splitScore += Decks.splitHand[0].cV;
             playerScore -= Decks.splitHand[0].cV;

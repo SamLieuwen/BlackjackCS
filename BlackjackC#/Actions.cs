@@ -31,7 +31,7 @@ namespace BlackjackCS
                             loop = false;
                             break;
                         case "double down":
-                            DoubleD();
+                            DoubleDown();
                             loop = false;
                             break;
                         default:
@@ -125,7 +125,7 @@ namespace BlackjackCS
                 }
             }
         }
-        public static void DoubleD()
+        public static void DoubleDown()
         {
             BlackJack.bet *= 2;
 

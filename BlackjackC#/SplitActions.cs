@@ -60,7 +60,7 @@ namespace BlackjackCS
                         loop = false;
                         break;
                     case "double down":
-                        SplitDD();
+                        SplitDoubleDown();
                         loop = false;
                         break;
                     default:
@@ -84,7 +84,7 @@ namespace BlackjackCS
                 Decks.splitHandAceCount--;
             }
         }
-        public static void SplitDD()
+        public static void SplitDoubleDown()
         {
             Split.splitBet *= 2;
             SplitHit();

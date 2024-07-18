@@ -122,7 +122,7 @@ namespace BlackjackCS
                             loop = false;
                             break;
                         case "double down":
-                            Actions.DoubleD();
+                            Actions.DoubleDown();
                             loop = false;
                             break;
                         case "split":
