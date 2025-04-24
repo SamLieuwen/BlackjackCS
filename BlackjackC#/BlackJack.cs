@@ -16,7 +16,6 @@ namespace BlackjackCS
         //Blackjack main code
         public static void Main(String[] args)
         {
-
             Decks.deck = new List<Card>();
             Decks.playerHand = new List<Card>();
             Decks.dealerHand = new List<Card>();
